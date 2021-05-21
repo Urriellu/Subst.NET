@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Subst.NET</name>
+    </assembly>
+    <members>
+        <member name="M:SubstNET.Subst.DefineDosDevice(System.Int32,System.String,System.String)">
+            <summary>Defines, redefines, or deletes MS-DOS device names.</summary>
+            <remarks>
+            <seealso cref="!:https://docs.microsoft.com/en-us/windows/desktop/api/fileapi/nf-fileapi-definedosdevicew"/>
+            <seealso cref="!:https://www.pinvoke.net/default.aspx/kernel32.definedosdevice"/>
+            </remarks>
+        </member>
+        <member name="M:SubstNET.Subst.QueryDosDevice(System.String,System.Text.StringBuilder,System.Int32)">
+            <summary>
+            Retrieves information about MS-DOS device names. The function can obtain the current mapping for a particular MS-DOS device name. The function can also obtain a list of all existing MS-DOS device names.
+            </summary>
+            <remarks>
+            MS-DOS device names are stored as junctions in the object namespace. The code that converts an MS-DOS path into a corresponding path uses these junctions to map MS-DOS devices and drive letters. The QueryDosDevice function enables an application to query the names of the junctions used to implement the MS-DOS device namespace as well as the value of each specific junction.
+            <seealso cref="!:https://docs.microsoft.com/en-us/windows/desktop/api/fileapi/nf-fileapi-querydosdevicew"/>
+            <seealso cref="!:https://www.pinvoke.net/default.aspx/kernel32.QueryDosDevice"/>
+            </remarks>
+        </member>
+        <member name="F:SubstNET.Subst.DefineDosDeviceFlags.DDD_RAW_TARGET_PATH">
+            <summary>
+            Uses the lpTargetPath string as is. Otherwise, it is converted from an MS-DOS path to a path.
+            </summary>
+        </member>
+        <member name="F:SubstNET.Subst.DefineDosDeviceFlags.DDD_REMOVE_DEFINITION">
+            <summary>
+            Removes the specified definition for the specified device. 
+            </summary>
+        </member>
+        <member name="F:SubstNET.Subst.DefineDosDeviceFlags.DDD_EXACT_MATCH_ON_REMOVE">
+            <summary>
+            If this value is specified along with <see cref="F:SubstNET.Subst.DefineDosDeviceFlags.DDD_REMOVE_DEFINITION"/>, the function will use an exact match to determine which mapping to remove.
+            </summary>
+        </member>
+        <member name="F:SubstNET.Subst.DefineDosDeviceFlags.DDD_NO_BROADCAST_SYSTEM">
+            <summary>
+            Do not broadcast the <see href="https://docs.microsoft.com/de-de/windows/desktop/winmsg/wm-settingchange">WM_SETTINGCHANGE</see> message. By default, this message is broadcast to notify the shell and applications of the change.
+            </summary>
+        </member>
+        <member name="M:SubstNET.Subst.MapDrive(System.Char,System.String)">
+            <summary>Maps the given directory to a virtual drive.</summary>
+            <param name="driveLetter">A drive letter (from A to Z) to be mapped to the given folder.</param>
+            <param name="path">The directory to be mapped as a virtual drive.</param>
+        </member>
+        <member name="M:SubstNET.Subst.UnmapDrive(System.Char)">
+            <summary>Unmaps a given virtual drive.</summary>
+            <param name="driveLetter">A drive letter (from A to Z) to be unmapped.</param>
+        </member>
+        <member name="M:SubstNET.Subst.GetDriveMapping(System.Char)">
+            <summary>Gets the path to the directory mapped to a given drive.</summary>
+            <param name="driveLetter">A drive letter (from A to Z).</param>
+            <returns>Returns the mapped directory path. Returns <c>null</c> if the drive letter was not mapped.</returns>
+        </member>
+    </members>
+</doc>
